@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Headphones Details — TechHub Catalogue</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-container">
+    <a href="index.html" class="logo">🛍️TechHub Catalogue</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </div>
+</nav>
+
+<section class="product-detail-flex">
+  <div class="product-images">
+    <a href="index.html" class="back-btn">&larr; Back to Catalog</a>
+    <img id="hero-headphone" src="images/headphone.jpeg" alt="Wireless Headphones" class="hero-keyboard">
+    <div class="optional-keyboards">
+      <img src="images/headphone1.jpg" alt="Headphones Model 1" onclick="setHero('hero-headphone', this)">
+      <img src="images/headphone2.jpg" alt="Headphones Model 2" onclick="setHero('hero-headphone', this)">
+      <img src="images/headphone3.jpg" alt="Headphones Model 3" onclick="setHero('hero-headphone', this)">
+    </div>
+  </div>
+  <div class="product-info">
+    <h4>Wireless Headphones</h4>
+    <p class="price">Price: R500.00</p>
+    <p class="stock">In Stock: <span id="stock-counter">25</span> items</p>
+    <p>Experience high-quality sound and deep bass with these wireless headphones. Perfect for music lovers and gamers alike, featuring noise cancellation and 20-hour battery life.</p>
+    <table class="clean-table">
+      <tr><th>Weight</th><td>250g</td></tr>
+      <tr><th>Dimensions</th><td>18 x 15 x 7 cm</td></tr>
+      <tr><th>Barcode</th><td>8901234567891</td></tr>
+      <tr><th>Connectivity</th><td>Bluetooth 5.0</td></tr>
+      <tr><th>Color</th><td>Black</td></tr>
+    </table>
+    <a href="contact.html" class="buy-btn"><span class="cart-icon">🛒</span>Buy Now</a>
+  </div>
+</section>
+
+<script>
+  function setHero(heroId, img) {
+    const hero = document.getElementById(heroId);
+    hero.src = img.src;
+    hero.alt = img.alt;
+  }
+</script>
+
+<footer>
+  <p>&copy; 2025 TechHub Catalogue. All rights reserved.</p>
+  <p>📧 support@techhub.com | 📞 +27 672 888 328</p>
+</footer>
+
+</body>
+</html>

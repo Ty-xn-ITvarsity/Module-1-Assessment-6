@@ -1,0 +1,613 @@
+/* ============================================
+   GLOBAL RESET & VARIABLES
+   ============================================ */
+
+/* Remove default margins and padding from all elements */
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+/* Define color variables for consistent theming */
+:root {
+  --main: #7c3aed;      /* Primary purple color */
+  --dark: #1d1d1f;      /* Dark text color */
+  --light: #fbfbfd;     /* Light background */
+  --white: #fff;        /* White background */
+  --border: #d2d2d7;    /* Border color */
+}
+
+/* ============================================
+   BODY & BASE STYLES
+   ============================================ */
+
+/* Set default font, background, and text styles for entire page */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f3f4f8;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ============================================
+   NAVIGATION BAR
+   ============================================ */
+
+/* Top navigation bar styling */
+nav {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 16px 32px;
+}
+
+/* Container for logo and nav links */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo styling */
+.logo { 
+  color: var(--main); 
+  font-weight: bold; 
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
+/* Navigation links container */
+.nav-links { 
+  display: flex; 
+  gap: 32px; 
+}
+
+/* Individual navigation link styling */
+.nav-links a { 
+  color: #555;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+/* Active navigation link */
+.nav-links a.active {
+  color: var(--main);
+}
+
+/* Navigation link hover effect */
+.nav-links a:hover { 
+  color: var(--main);
+}
+
+/* ============================================
+   PAGE HEADERS & TITLES
+   ============================================ */
+
+/* Page header section (title and subtitle) */
+#header {
+  text-align: center;
+  margin: 40px auto 24px auto;
+  max-width: 800px;
+}
+
+/* Main page title */
+#header h1 {
+  color: var(--main);
+  margin-bottom: 10px;
+}
+
+/* Page subtitle */
+#header h2.subtitle {
+  color: #555;
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+}
+
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+
+/* Main content wrapper for pages */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px 60px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+/* ============================================
+   HOME PAGE - PRODUCT CATALOGUE
+   ============================================ */
+
+/* Grid layout for product cards on home page */
+.catalogue {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 32px;
+  max-width: 1100px;
+  margin: 48px auto;
+  padding: 0 16px;
+}
+
+/* Remove underline from product links */
+.catalogue a {
+  text-decoration: none;
+}
+
+/* Individual product card styling */
+.product {
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px #0001;
+  text-align: center;
+  padding: 24px 16px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Product card hover effect */
+.product:hover { 
+  box-shadow: 0 8px 32px #0002; 
+  transform: translateY(-4px) scale(1.03); 
+}
+
+/* Product card image */
+.product img { 
+  width: 100%; 
+  max-width: 180px; 
+  height: 140px; 
+  object-fit: cover; 
+  border-radius: 10px; 
+  margin-bottom: 12px; 
+}
+
+/* Product card title */
+.product h3 { 
+  color: var(--main); 
+  margin: 14px 0 10px; 
+  font-size: 1.15rem; 
+  text-decoration: none;
+}
+
+/* ============================================
+   PRODUCT DETAIL PAGE
+   ============================================ */
+
+/* Flex container for product images and info */
+.product-detail-flex {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 40px auto;
+  max-width: 1100px;
+  width: 95%;
+}
+
+/* Left section - product images */
+.product-images {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Main product image (hero image) */
+.hero-keyboard {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #0001;
+  margin-bottom: 18px;
+}
+
+/* Container for optional product images */
+.optional-keyboards {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+/* Optional product thumbnail images */
+.optional-keyboards img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #eee;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+/* Optional image hover effect */
+.optional-keyboards img:hover {
+  border-color: var(--main);
+}
+
+/* Right section - product information */
+.product-info {
+  flex: 1;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #0001;
+  padding: 28px 24px;
+  min-width: 260px;
+  max-width: 340px;
+}
+
+/* Product title */
+.product-info h4 {
+  font-size: 1.4rem;
+  color: var(--main);
+  margin-bottom: 10px;
+}
+
+/* Product price */
+.product-info .price {
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 6px;
+}
+
+/* Stock availability */
+.product-info .stock {
+  color: #28a745;
+  margin-bottom: 14px;
+}
+
+/* Product description */
+.product-info p {
+  margin-bottom: 16px;
+}
+
+/* ============================================
+   PRODUCT SPECIFICATIONS TABLE
+   ============================================ */
+
+/* Product specifications table */
+.clean-table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  margin: 22px 0;
+}
+
+/* Table cells */
+.clean-table th, 
+.clean-table td { 
+  padding: 10px; 
+  text-align: left;
+}
+
+/* Table headers */
+.clean-table th { 
+  color: var(--main); 
+  font-weight: bold;
+}
+
+/* Table data */
+.clean-table td { 
+  color: var(--dark); 
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+/* Buy/Purchase button */
+.buy-btn {
+  display: inline-flex;
+  align-items: center;
+  background: var(--main);
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 18px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+/* Buy button hover effect */
+.buy-btn:hover { 
+  background: #6d28d9; 
+}
+
+/* Shopping cart icon in button */
+.cart-icon { 
+  font-size: 20px; 
+  margin-right: 8px; 
+}
+
+/* Stock counter increment/decrement buttons */
+.stock-btn {
+  background: #eee;
+  border: none;
+  border-radius: 4px;
+  padding: 2px 10px;
+  margin: 0 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+/* Stock button hover effect */
+.stock-btn:hover {
+  background: #ddd;
+}
+
+/* Back to catalog button */
+.back-btn {
+  display: inline-block;
+  margin-bottom: 18px;
+  background: #eee;
+  color: #333;
+  padding: 8px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+/* Back button hover effect */
+.back-btn:hover {
+  background: #ddd;
+}
+
+/* ============================================
+   ABOUT PAGE
+   ============================================ */
+
+/* About page content sections */
+.section-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px 40px;
+  margin-top: 25px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+  width: 100%;
+  max-width: 750px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: left;
+}
+
+/* Section box hover effect */
+.section-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+/* Mission section (purple left border) */
+.section-box.mission {
+  border-left: 5px solid #7c3aed;
+}
+
+/* Why Choose Us section (green left border) */
+.section-box.why-choose {
+  border-left: 5px solid #28a745;
+}
+
+/* Story section (orange left border) */
+.section-box.story {
+  border-left: 5px solid #ff9800;
+}
+
+/* Why Choose Us list styling */
+.why-choose ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Why Choose Us list items */
+.why-choose li {
+  margin: 10px 0;
+  padding-left: 30px;
+  position: relative;
+  font-weight: 500;
+}
+
+/* Checkmark before each list item */
+.why-choose li::before {
+  content: "✔";
+  color: #28a745;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.1rem;
+}
+
+/* ============================================
+   CONTACT PAGE
+   ============================================ */
+
+/* Flex container for contact form and info */
+.contact-flex {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  flex-wrap: nowrap;
+}
+
+/* Contact form and info boxes styling */
+.contact-form-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  flex: 1;
+  min-width: 380px;
+  max-width: 550px;
+}
+
+/* Contact form heading */
+.contact-form-box h2 {
+  margin-bottom: 1.5rem;
+  color: var(--main);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Contact form labels */
+.contact-form-box form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Contact form input fields and textarea */
+.contact-form-box input,
+.contact-form-box textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #f5f5f5;
+}
+
+/* Contact form textarea specific styling */
+.contact-form-box textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Contact form submit button */
+.contact-form-box button {
+  background: var(--main);
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Contact form button hover effect */
+.contact-form-box button:hover {
+  background: #6d28d9;
+}
+
+/* Container for contact info boxes (email, phone, address) */
+.contact-info-boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Individual contact info box */
+.contact-info-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+/* Icons in contact info boxes */
+.contact-info-box i {
+  font-size: 1.5rem;
+  color: var(--main);
+  margin-top: 0.2rem;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+/* Page footer styling */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablet and smaller screens */
+@media (max-width: 900px) {
+  /* Stack container content vertically */
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Stack contact form and info vertically */
+  .contact-flex {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+  
+  /* Full width contact boxes on mobile */
+  .contact-form-box {
+    min-width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Stack product detail sections vertically */
+  .product-detail-flex {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  /* Full width product sections on mobile */
+  .product-images, 
+  .product-info {
+    max-width: 100%;
+  }
+  
+  /* Add spacing between product sections */
+  .product-info {
+    margin-top: 30px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 700px) {
+  /* Single column product grid */
+  .catalogue { 
+    grid-template-columns: 1fr; 
+    gap: 18px; 
+  }
+  
+  /* Full width product cards */
+  .product { 
+    max-width: 98vw; 
+    padding: 14px 4px; 
+  }
+  
+  /* Full width hero images */
+  .hero-keyboard { 
+    max-width: 98vw; 
+  }
+  
+  /* Smaller optional images on mobile */
+  .optional-keyboards img { 
+    width: 60px; 
+    height: 60px; 
+  }
+}
